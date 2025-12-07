@@ -2,742 +2,692 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>随机数生成器 | 在线工具</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="viewport" content="width=device-width, 
+
+initial-scale=1.0">
+    <title>实用工具集合 | 在线小工具</title>
+    <link rel="stylesheet" 
+
+href="https://cdnjs.cloudflare.com/ajax/libs/font-
+
+awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, 
+
+sans-serif;
         }
         
         body {
-            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            background: linear-gradient(135deg, #1a2a6c 0%, 
+
+#2a3c7f 100%);
             color: #333;
             min-height: 100vh;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
         }
         
         .container {
             width: 100%;
-            max-width: 900px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
         }
         
         header {
             text-align: center;
-            margin-bottom: 30px;
-            color: white;
-            width: 100%;
+            margin-bottom: 40px;
+            padding-top: 20px;
         }
         
         h1 {
-            font-size: 2.8rem;
+            font-size: 3.2rem;
             margin-bottom: 10px;
-            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            color: white;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
         }
         
         .subtitle {
-            font-size: 1.2rem;
-            opacity: 0.9;
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.85);
             font-weight: 300;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
         }
         
-        .main-content {
-            display: flex;
-            flex-wrap: wrap;
+        .apps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax
+
+(320px, 1fr));
             gap: 30px;
-            margin-bottom: 30px;
+            margin-bottom: 50px;
         }
         
-        .card {
+        .app-card {
             background: white;
             border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             overflow: hidden;
-            flex: 1;
-            min-width: 300px;
-        }
-        
-        .card-header {
-            background: linear-gradient(to right, #4a00e0, #8e2de2);
-            color: white;
-            padding: 20px;
-            font-size: 1.4rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .card-content {
-            padding: 25px;
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: #444;
-        }
-        
-        input[type="number"] {
-            width: 100%;
-            padding: 12px 15px;
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            font-size: 1.1rem;
-            transition: border-color 0.3s;
-        }
-        
-        input[type="number"]:focus {
-            border-color: #6a11cb;
-            outline: none;
-        }
-        
-        .range-display {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 5px;
-            color: #666;
-            font-size: 0.9rem;
-        }
-        
-        .checkbox-group {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-top: 10px;
-        }
-        
-        .checkbox-group input[type="checkbox"] {
-            width: 18px;
-            height: 18px;
-        }
-        
-        .buttons {
-            display: flex;
-            gap: 15px;
-            margin-top: 25px;
-            flex-wrap: wrap;
-        }
-        
-        .btn {
-            padding: 14px 24px;
-            border: none;
-            border-radius: 8px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            flex: 1;
-            min-width: 160px;
-        }
-        
-        .btn-primary {
-            background: linear-gradient(to right, #6a11cb, #2575fc);
-            color: white;
-        }
-        
-        .btn-secondary {
-            background: #f1f1f1;
-            color: #444;
-        }
-        
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .btn-primary:hover {
-            background: linear-gradient(to right, #5a0db9, #1c65e8);
-        }
-        
-        .btn-secondary:hover {
-            background: #e0e0e0;
-        }
-        
-        .result-box {
-            background: #f8f9fa;
-            border-radius: 10px;
-            padding: 25px;
-            text-align: center;
-            margin-top: 20px;
-            border: 2px dashed #ddd;
-            min-height: 120px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            height: 100%;
         }
         
-        .result-label {
-            font-size: 1rem;
-            color: #777;
-            margin-bottom: 10px;
+        .app-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
         }
         
-        .result-number {
-            font-size: 3.5rem;
-            font-weight: 700;
-            color: #6a11cb;
-            word-break: break-all;
+        .app-card.featured {
+            border: 3px solid #ffd700;
+            position: relative;
         }
         
-        .history-container {
-            max-height: 300px;
-            overflow-y: auto;
-            margin-top: 15px;
-            padding-right: 10px;
-        }
-        
-        .history-item {
-            background: #f1f1f1;
-            padding: 12px 15px;
-            border-radius: 8px;
-            margin-bottom: 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            animation: fadeIn 0.5s;
-        }
-        
-        .history-number {
+        .featured-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #ffd700;
+            color: #333;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
             font-weight: 600;
-            font-size: 1.2rem;
-            color: #6a11cb;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
         }
         
-        .history-range {
-            font-size: 0.9rem;
-            color: #666;
-        }
-        
-        .history-time {
-            font-size: 0.8rem;
-            color: #999;
-        }
-        
-        .copy-btn {
-            background: none;
-            border: none;
-            color: #6a11cb;
-            font-size: 1.2rem;
-            cursor: pointer;
-            padding: 5px;
-            border-radius: 4px;
-            transition: background 0.2s;
-        }
-        
-        .copy-btn:hover {
-            background: rgba(106, 17, 203, 0.1);
-        }
-        
-        footer {
+        .app-header {
+            background: linear-gradient(to right, #4a00e0, 
+
+#8e2de2);
+            color: white;
+            padding: 25px;
             text-align: center;
-            color: rgba(255, 255, 255, 0.8);
-            margin-top: 20px;
+        }
+        
+        .app-icon {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+        }
+        
+        .app-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        
+        .app-description {
+            font-size: 1rem;
+            opacity: 0.9;
+            line-height: 1.5;
+        }
+        
+        .app-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .app-features {
+            list-style-type: none;
+            margin-bottom: 25px;
+            flex-grow: 1;
+        }
+        
+        .app-features li {
+            padding: 8px 0;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .app-features li:last-child {
+            border-bottom: none;
+        }
+        
+        .app-features li i {
+            color: #4a00e0;
+            margin-right: 10px;
             font-size: 0.9rem;
-            width: 100%;
-            padding: 20px;
         }
         
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+        .app-button {
+            display: block;
+            text-align: center;
+            background: linear-gradient(to right, #4a00e0, 
+
+#8e2de2);
+            color: white;
+            padding: 14px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            margin-top: auto;
         }
         
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
+        .app-button:hover {
+            background: linear-gradient(to right, #3a00c0, 
+
+#7a1dd2);
+            box-shadow: 0 5px 15px rgba(74, 0, 224, 0.3);
         }
         
-        .pulse {
-            animation: pulse 0.5s;
+        .coming-soon {
+            background: linear-gradient(to right, #777, #999);
+            cursor: not-allowed;
+        }
+        
+        .coming-soon:hover {
+            background: linear-gradient(to right, #777, #999);
+            box-shadow: none;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 30px 0;
+            color: rgba(255, 255, 255, 0.7);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 30px;
+        }
+        
+        .footer p {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            text-decoration: underline;
         }
         
         @media (max-width: 768px) {
-            .main-content {
-                flex-direction: column;
-            }
-            
-            .card {
-                width: 100%;
+            .apps-grid {
+                grid-template-columns: 1fr;
             }
             
             h1 {
-                font-size: 2.2rem;
+                font-size: 2.5rem;
             }
             
-            .btn {
-                min-width: 100%;
+            .subtitle {
+                font-size: 1.1rem;
             }
         }
         
-        /* 滚动条样式 */
-        .history-container::-webkit-scrollbar {
-            width: 8px;
-        }
-        
-        .history-container::-webkit-scrollbar-track {
-            background: #f1f1f1;
-            border-radius: 4px;
-        }
-        
-        .history-container::-webkit-scrollbar-thumb {
-            background: #c1c1c1;
-            border-radius: 4px;
-        }
-        
-        .history-container::-webkit-scrollbar-thumb:hover {
-            background: #a1a1a1;
-        }
-        
-        .notification {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: #4CAF50;
-            color: white;
-            padding: 15px 25px;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            z-index: 1000;
+        /* 统计信息样式 */
+        .stats-container {
             display: flex;
-            align-items: center;
-            gap: 10px;
-            animation: slideIn 0.3s, fadeOut 0.3s 2.7s;
-            display: none;
+            justify-content: center;
+            gap: 30px;
+            margin: 30px 0;
+            flex-wrap: wrap;
         }
         
-        @keyframes slideIn {
-            from { transform: translateX(100%); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
+        .stat-item {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            min-width: 150px;
+            color: white;
         }
         
-        @keyframes fadeOut {
-            from { opacity: 1; }
-            to { opacity: 0; }
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        /* 更新日志 */
+        .updates {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 40px;
+            box-shadow: 0 8px 25px rgba(0, 0, 255, 0.1);
+        }
+        
+        .updates h2 {
+            color: #4a00e0;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        
+        .update-item {
+            padding: 15px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .update-item:last-child {
+            border-bottom: none;
+        }
+        
+        .update-date {
+            color: #4a00e0;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .update-content {
+            color: #555;
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .app-card {
+            animation: fadeInUp 0.6s ease forwards;
+            opacity: 0;
+        }
+        
+        .app-card:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+        
+        .app-card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        
+        .app-card:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+        
+        .app-card:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+        
+        .app-card:nth-child(5) {
+            animation-delay: 0.5s;
+        }
+        
+        .app-card:nth-child(6) {
+            animation-delay: 0.6s;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1><i class="fas fa-random"></i> 随机数生成器</h1>
-            <p class="subtitle">生成指定范围内的随机整数，支持自定义范围和去重功能</p>
+            <h1><i class="fas fa-toolbox"></i> 实用工具集合
+
+</h1>
+            <p class="subtitle">精选多种在线实用工具，涵盖日常
+
+生活、学习工作多个场景，无需安装，打开即用！</p>
+            
+            <div class="stats-container">
+                <div class="stat-item">
+                    <div class="stat-number" 
+
+id="totalTools">6</div>
+                    <div class="stat-label">工具总数</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" 
+
+id="availableTools">1</div>
+                    <div class="stat-label">已上线工具</div>
+                </div>
+            </div>
         </header>
         
-        <div class="main-content">
-            <div class="card">
-                <div class="card-header">
-                    <i class="fas fa-sliders-h"></i> 随机数设置
+        <div class="apps-grid">
+            <!-- 随机数生成器 -->
+            <div class="app-card featured">
+                <div class="featured-badge">已上线</div>
+                <div class="app-header">
+                    <div class="app-icon">
+                        <i class="fas fa-random"></i>
+                    </div>
+                    <div class="app-title">随机数生成器</div>
+                    <div class="app-description">生成指定范围
+
+内的随机整数，支持批量生成和去重功能</div>
                 </div>
-                <div class="card-content">
-                    <div class="form-group">
-                        <label for="minValue">最小值</label>
-                        <input type="number" id="minValue" value="1" min="-999999" max="999999">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="maxValue">最大值</label>
-                        <input type="number" id="maxValue" value="100" min="-999999" max="999999">
-                        <div class="range-display">
-                            <span>范围: <span id="rangeDisplay">1 到 100</span></span>
-                            <span>共 <span id="totalNumbers">100</span> 个可能值</span>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="quantity">生成数量</label>
-                        <input type="number" id="quantity" value="1" min="1" max="50">
-                    </div>
-                    
-                    <div class="checkbox-group">
-                        <input type="checkbox" id="uniqueCheckbox" checked>
-                        <label for="uniqueCheckbox">生成唯一值（不重复）</label>
-                    </div>
-                    
-                    <div class="buttons">
-                        <button class="btn btn-primary" id="generateBtn">
-                            <i class="fas fa-bolt"></i> 生成随机数
-                        </button>
-                        <button class="btn btn-secondary" id="resetBtn">
-                            <i class="fas fa-redo"></i> 重置设置
-                        </button>
-                    </div>
-                    
-                    <div class="result-box">
-                        <div class="result-label">生成的随机数</div>
-                        <div class="result-number" id="resultNumber">--</div>
-                    </div>
-                    
-                    <div class="buttons" style="margin-top: 20px;">
-                        <button class="btn btn-secondary" id="copyBtn">
-                            <i class="far fa-copy"></i> 复制到剪贴板
-                        </button>
-                        <button class="btn btn-secondary" id="clearHistoryBtn">
-                            <i class="far fa-trash-alt"></i> 清除历史记录
-                        </button>
-                    </div>
+                <div class="app-content">
+                    <ul class="app-features">
+                        <li><i class="fas fa-check-
+
+circle"></i> 自定义范围（负数到正数）</li>
+                        <li><i class="fas fa-check-
+
+circle"></i> 批量生成多个随机数</li>
+                        <li><i class="fas fa-check-
+
+circle"></i> 唯一值选项（不重复）</li>
+                        <li><i class="fas fa-check-
+
+circle"></i> 历史记录与复制功能</li>
+                        <li><i class="fas fa-check-
+
+circle"></i> 响应式设计，移动端友好</li>
+                    </ul>
+                    <a 
+
+href="https://yizhimoshushi.github.io/suijishu/" 
+
+target="_blank" class="app-button">
+                        <i class="fas fa-external-link-
+
+alt"></i> 立即使用
+                    </a>
                 </div>
             </div>
             
-            <div class="card">
-                <div class="card-header">
-                    <i class="fas fa-history"></i> 生成历史
+            <!-- 密码生成器 -->
+            <div class="app-card">
+                <div class="app-header">
+                    <div class="app-icon">
+                        <i class="fas fa-key"></i>
+                    </div>
+                    <div class="app-title">密码生成器</div>
+                    <div class="app-description">生成高强度随
+
+机密码，增强账户安全性</div>
                 </div>
-                <div class="card-content">
-                    <p style="margin-bottom: 15px; color: #666;">最近生成的随机数记录：</p>
-                    <div class="history-container" id="historyContainer">
-                        <!-- 历史记录将在这里动态生成 -->
-                        <div class="history-item">
-                            <div>
-                                <div class="history-number">42</div>
-                                <div class="history-range">范围: 1 到 100</div>
-                            </div>
-                            <div>
-                                <div class="history-time">刚刚</div>
-                                <button class="copy-btn" title="复制">
-                                    <i class="far fa-copy"></i>
-                                </button>
-                            </div>
-                        </div>
-                        
-                        <div class="history-item">
-                            <div>
-                                <div class="history-number">73</div>
-                                <div class="history-range">范围: 1 到 100</div>
-                            </div>
-                            <div>
-                                <div class="history-time">2分钟前</div>
-                                <button class="copy-btn" title="复制">
-                                    <i class="far fa-copy"></i>
-                                </button>
-                            </div>
-                        </div>
-                        
-                        <div class="history-item">
-                            <div>
-                                <div class="history-number">15</div>
-                                <div class="history-range">范围: 1 到 100</div>
-                            </div>
-                            <div>
-                                <div class="history-time">5分钟前</div>
-                                <button class="copy-btn" title="复制">
-                                    <i class="far fa-copy"></i>
-                                </button>
-                            </div>
-                        </div>
+                <div class="app-content">
+                    <ul class="app-features">
+                        <li><i class="fas fa-check-
+
+circle"></i> 自定义密码长度</li>
+                        <li><i class="fas fa-check-
+
+circle"></i> 包含大小写字母、数字、符号</li>
+                        <li><i class="fas fa-check-
+
+circle"></i> 密码强度实时评估</li>
+                        <li><i class="fas fa-check-
+
+circle"></i> 批量生成多个密码</li>
+                        <li><i class="fas fa-check-
+
+circle"></i> 一键复制到剪贴板</li>
+                    </ul>
+                    <a href="#" class="app-button coming-
+
+soon">
+                        <i class="far fa-clock"></i> 开发中
+                    </a>
+                </div>
+            </div>
+            
+            <!-- 单位换算器 -->
+            <div class="app-card">
+                <div class="app-header">
+                    <div class="app-icon">
+                        <i class="fas fa-balance-scale"></i>
                     </div>
-                    
-                    <div style="margin-top: 20px; padding-top: 15px; border-top: 1px solid #eee;">
-                        <p style="color: #666; font-size: 0.9rem;">
-                            <i class="fas fa-info-circle"></i> 提示：点击历史记录旁边的复制按钮可以快速复制该数值
-                        </p>
+                    <div class="app-title">单位换算器</div>
+                    <div class="app-description">长度、重量、
+
+温度、面积等多维度单位换算</div>
+                </div>
+                <div class="app-content">
+                    <ul class="app-features">
+                        <li><i class="fas fa-check-
+
+circle"></i> 长度单位换算</li>
+                        <li><i class="fas fa-check-
+
+circle"></i> 重量单位换算</li>
+                        <li><i class="fas fa-check-
+
+circle"></i> 温度单位换算</li>
+                        <li><i class="fas fa-check-
+
+circle"></i> 面积与体积换算</li>
+                        <li><i class="fas fa-check-
+
+circle"></i> 实时汇率换算（API）</li>
+                    </ul>
+                    <a href="#" class="app-button coming-
+
+soon">
+                        <i class="far fa-clock"></i> 开发中
+                    </a>
+                </div>
+            </div>
+            
+            <!-- 二维码生成器 -->
+            <div class="app-card">
+                <div class="app-header">
+                    <div class="app-icon">
+                        <i class="fas fa-qrcode"></i>
                     </div>
+                    <div class="app-title">二维码生成器</div>
+                    <div class="app-description">将文本、网址
+
+、联系方式等生成二维码图片</div>
+                </div>
+                <div class="app-content">
+                    <ul class="app-features">
+                        <li><i class="fas fa-check-
+
+circle"></i> 支持文本、网址、WiFi等</li>
+                        <li><i class="fas fa-check-
+
+circle"></i> 自定义颜色和尺寸</li>
+                        <li><i class="fas fa-check-
+
+circle"></i> 添加Logo和背景图案</li>
+                        <li><i class="fas fa-check-
+
+circle"></i> 二维码美化与样式调整</li>
+                        <li><i class="fas fa-check-
+
+circle"></i> 一键下载高清图片</li>
+                    </ul>
+                    <a href="#" class="app-button coming-
+
+soon">
+                        <i class="far fa-clock"></i> 开发中
+                    </a>
+                </div>
+            </div>
+            
+            <!-- 颜色选择器 -->
+            <div class="app-card">
+                <div class="app-header">
+                    <div class="app-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <div class="app-title">颜色选择器</div>
+                    <div class="app-description">取色、调色、
+
+配色方案生成，支持多种格式</div>
+                </div>
+                <div class="app-content">
+                    <ul class="app-features">
+                        <li><i class="fas fa-check-
+
+circle"></i> 屏幕取色器</li>
+                        <li><i class="fas fa-check-
+
+circle"></i> 颜色格式转换</li>
+                        <li><i class="fas fa-check-
+
+circle"></i> 配色方案生成</li>
+                        <li><i class="fas fa-check-
+
+circle"></i> 对比度检查器</li>
+                        <li><i class="fas fa-check-
+
+circle"></i> 色盲友好颜色建议</li>
+                    </ul>
+                    <a href="#" class="app-button coming-
+
+soon">
+                        <i class="far fa-clock"></i> 开发中
+                    </a>
+                </div>
+            </div>
+            
+            <!-- 日期计算器 -->
+            <div class="app-card">
+                <div class="app-header">
+                    <div class="app-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <div class="app-title">日期计算器</div>
+                    <div class="app-description">日期推算、间
+
+隔计算、工作日计算等功能</div>
+                </div>
+                <div class="app-content">
+                    <ul class="app-features">
+                        <li><i class="fas fa-check-
+
+circle"></i> 日期加减计算</li>
+                        <li><i class="fas fa-check-
+
+circle"></i> 日期间隔天数计算</li>
+                        <li><i class="fas fa-check-
+
+circle"></i> 工作日计算（排除周末）</li>
+                        <li><i class="fas fa-check-
+
+circle"></i> 节假日提醒与排除</li>
+                        <li><i class="fas fa-check-
+
+circle"></i> 农历与公历转换</li>
+                    </ul>
+                    <a href="#" class="app-button coming-
+
+soon">
+                        <i class="far fa-clock"></i> 开发中
+                    </a>
                 </div>
             </div>
         </div>
         
-        <footer>
-            <p>随机数生成器 &copy; 2023 | 使用纯HTML/CSS/JavaScript实现</p>
-            <p>本工具完全在浏览器端运行，不会收集或传输任何数据</p>
-        </footer>
-    </div>
-    
-    <div class="notification" id="notification">
-        <i class="fas fa-check-circle"></i>
-        <span id="notificationText">已复制到剪贴板！</span>
+        <div class="updates">
+            <h2><i class="fas fa-history"></i> 更新日志</h2>
+            <div class="update-item">
+                <div class="update-date">2025年12月 - v1.0 发
+
+布</div>
+                <div class="update-content">首个版本上线，包含
+
+随机数生成器，并规划了5个新工具的开发路线图</div>
+            </div>
+            <div class="update-item">
+                <div class="update-date">近期计划</div>
+                <div class="update-content">密码生成器正在开发
+
+中，预计3025年12月上线</div>
+            </div>
+            <div class="update-item">
+                <div class="update-date">未来展望</div>
+                <div class="update-content">计划增加更多实用工
+
+具，如文本处理、图像编辑、数据转换等类别</div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>实用工具集合 &copy; 2025 | 为方便日常生活而设计
+
+</p>
+            <p>所有工具均在浏览器端运行，保护您的隐私安全</p>
+            
+        </div>
     </div>
     
     <script>
-        // DOM元素
-        const minValueInput = document.getElementById('minValue');
-        const maxValueInput = document.getElementById('maxValue');
-        const quantityInput = document.getElementById('quantity');
-        const uniqueCheckbox = document.getElementById('uniqueCheckbox');
-        const generateBtn = document.getElementById('generateBtn');
-        const resetBtn = document.getElementById('resetBtn');
-        const copyBtn = document.getElementById('copyBtn');
-        const clearHistoryBtn = document.getElementById('clearHistoryBtn');
-        const resultNumber = document.getElementById('resultNumber');
-        const historyContainer = document.getElementById('historyContainer');
-        const rangeDisplay = document.getElementById('rangeDisplay');
-        const totalNumbers = document.getElementById('totalNumbers');
-        const notification = document.getElementById('notification');
-        const notificationText = document.getElementById('notificationText');
-        
-        // 存储历史记录
-        let history = JSON.parse(localStorage.getItem('randomNumberHistory')) || [
-            {number: "42", min: 1, max: 100, time: "刚刚"},
-            {number: "73", min: 1, max: 100, time: "2分钟前"},
-            {number: "15", min: 1, max: 100, time: "5分钟前"}
-        ];
-        
-        // 初始化页面
-        function initPage() {
-            updateRangeDisplay();
-            renderHistory();
+        // 页面加载动画效果
+        document.addEventListener('DOMContentLoaded', 
+
+function() {
+            // 工具数量统计
+            const totalTools = document.querySelectorAll
+
+('.app-card').length;
+            const availableTools = document.querySelectorAll
+
+('.app-card.featured').length;
             
-            // 添加事件监听器
-            minValueInput.addEventListener('input', updateRangeDisplay);
-            maxValueInput.addEventListener('input', updateRangeDisplay);
-            generateBtn.addEventListener('click', generateRandomNumbers);
-            resetBtn.addEventListener('click', resetSettings);
-            copyBtn.addEventListener('click', copyToClipboard);
-            clearHistoryBtn.addEventListener('click', clearHistory);
+            document.getElementById('totalTools').textContent 
+
+= totalTools;
+            document.getElementById
+
+('availableTools').textContent = availableTools;
             
-            // 显示示例随机数
-            resultNumber.textContent = "42";
-        }
-        
-        // 更新范围显示
-        function updateRangeDisplay() {
-            const min = parseInt(minValueInput.value) || 0;
-            const max = parseInt(maxValueInput.value) || 100;
-            
-            // 确保最小值不超过最大值
-            if (min > max) {
-                minValueInput.value = max;
-                maxValueInput.value = min;
-            }
-            
-            const rangeMin = parseInt(minValueInput.value) || 0;
-            const rangeMax = parseInt(maxValueInput.value) || 100;
-            const total = Math.abs(rangeMax - rangeMin) + 1;
-            
-            rangeDisplay.textContent = `${rangeMin} 到 ${rangeMax}`;
-            totalNumbers.textContent = total;
-        }
-        
-        // 生成随机数
-        function generateRandomNumbers() {
-            const min = parseInt(minValueInput.value) || 0;
-            const max = parseInt(maxValueInput.value) || 100;
-            const quantity = parseInt(quantityInput.value) || 1;
-            const unique = uniqueCheckbox.checked;
-            
-            // 验证输入
-            if (min > max) {
-                showNotification("最小值不能大于最大值！", "error");
-                return;
-            }
-            
-            const range = max - min + 1;
-            
-            if (unique && quantity > range) {
-                showNotification(`要求生成 ${quantity} 个唯一值，但范围 ${min} 到 ${max} 只有 ${range} 个可能值。`, "error");
-                return;
-            }
-            
-            // 生成随机数
-            let numbers = [];
-            
-            if (unique) {
-                // 生成唯一随机数
-                const possibleNumbers = Array.from({length: range}, (_, i) => i + min);
-                
-                for (let i = 0; i < quantity; i++) {
-                    const randomIndex = Math.floor(Math.random() * possibleNumbers.length);
-                    numbers.push(possibleNumbers[randomIndex]);
-                    possibleNumbers.splice(randomIndex, 1);
-                }
-            } else {
-                // 生成随机数（可能重复）
-                for (let i = 0; i < quantity; i++) {
-                    numbers.push(Math.floor(Math.random() * range) + min);
-                }
-            }
-            
-            // 显示结果
-            const resultText = quantity === 1 ? numbers[0] : numbers.join(", ");
-            resultNumber.textContent = resultText;
-            resultNumber.classList.remove('pulse');
-            void resultNumber.offsetWidth; // 触发重排以重新启动动画
-            resultNumber.classList.add('pulse');
-            
-            // 添加到历史记录
-            const now = new Date();
-            const timeString = formatTime(now);
-            
-            const historyEntry = {
-                number: resultText,
-                min: min,
-                max: max,
-                time: timeString,
-                timestamp: now.getTime()
-            };
-            
-            history.unshift(historyEntry);
-            
-            // 限制历史记录数量
-            if (history.length > 50) {
-                history = history.slice(0, 50);
-            }
-            
-            // 保存到本地存储并更新显示
-            saveHistory();
-            renderHistory();
-            
-            // 显示成功消息
-            const successMsg = quantity === 1 
-                ? `已生成随机数: ${resultText}` 
-                : `已生成 ${quantity} 个随机数`;
-            showNotification(successMsg, "success");
-        }
-        
-        // 格式化时间
-        function formatTime(date) {
-            const now = new Date();
-            const diffMs = now - date;
-            const diffSec = Math.floor(diffMs / 1000);
-            const diffMin = Math.floor(diffSec / 60);
-            const diffHour = Math.floor(diffMin / 60);
-            
-            if (diffSec < 60) return "刚刚";
-            if (diffMin < 60) return `${diffMin}分钟前`;
-            if (diffHour < 24) return `${diffHour}小时前`;
-            
-            return date.toLocaleDateString();
-        }
-        
-        // 渲染历史记录
-        function renderHistory() {
-            historyContainer.innerHTML = '';
-            
-            if (history.length === 0) {
-                historyContainer.innerHTML = '<p style="text-align: center; color: #999; padding: 20px;">暂无历史记录</p>';
-                return;
-            }
-            
-            history.forEach((entry, index) => {
-                const historyItem = document.createElement('div');
-                historyItem.className = 'history-item';
-                historyItem.innerHTML = `
-                    <div>
-                        <div class="history-number">${entry.number}</div>
-                        <div class="history-range">范围: ${entry.min} 到 ${entry.max}</div>
-                    </div>
-                    <div>
-                        <div class="history-time">${entry.time}</div>
-                        <button class="copy-btn" title="复制" data-number="${entry.number}">
-                            <i class="far fa-copy"></i>
-                        </button>
-                    </div>
-                `;
-                
-                historyContainer.appendChild(historyItem);
-            });
-            
-            // 为复制按钮添加事件监听器
-            document.querySelectorAll('.history-item .copy-btn').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const number = this.getAttribute('data-number');
-                    copyTextToClipboard(number);
-                    showNotification(`已复制: ${number}`, "success");
+            // 为"开发中"按钮添加点击提示
+            const comingSoonButtons = 
+
+document.querySelectorAll('.coming-soon');
+            comingSoonButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    alert('该功能正在开发中，敬请期待！\n\n目前
+
+可以先使用已上线的"随机数生成器"工具。');
                 });
             });
-        }
-        
-        // 保存历史记录到本地存储
-        function saveHistory() {
-            localStorage.setItem('randomNumberHistory', JSON.stringify(history));
-        }
-        
-        // 重置设置
-        function resetSettings() {
-            minValueInput.value = 1;
-            maxValueInput.value = 100;
-            quantityInput.value = 1;
-            uniqueCheckbox.checked = true;
-            updateRangeDisplay();
-            resultNumber.textContent = "--";
-            showNotification("设置已重置", "info");
-        }
-        
-        // 复制到剪贴板
-        function copyToClipboard() {
-            const text = resultNumber.textContent;
             
-            if (text === "--") {
-                showNotification("没有可复制的内容！", "error");
-                return;
-            }
+            // 添加滚动动画效果
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
             
-            copyTextToClipboard(text);
-            showNotification(`已复制: ${text}`, "success");
-        }
-        
-        // 复制文本到剪贴板的通用函数
-        function copyTextToClipboard(text) {
-            // 使用现代剪贴板API
-            navigator.clipboard.writeText(text).then(() => {
-                // 成功
-            }).catch(err => {
-                // 备用方法
-                const textArea = document.createElement("textarea");
-                textArea.value = text;
-                document.body.appendChild(textArea);
-                textArea.select();
-                document.execCommand("copy");
-                document.body.removeChild(textArea);
+            const observer = new IntersectionObserver
+
+(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 
+
+'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            // 观察所有应用卡片
+            document.querySelectorAll('.app-card').forEach
+
+(card => {
+                observer.observe(card);
             });
-        }
-        
-        // 清除历史记录
-        function clearHistory() {
-            if (history.length === 0) {
-                showNotification("历史记录已为空", "info");
-                return;
-            }
-            
-            if (confirm("确定要清除所有历史记录吗？")) {
-                history = [];
-                saveHistory();
-                renderHistory();
-                showNotification("历史记录已清除", "success");
-            }
-        }
-        
-        // 显示通知
-        function showNotification(message, type) {
-            notificationText.textContent = message;
-            
-            // 设置不同类型的颜色
-            if (type === "error") {
-                notification.style.background = "#f44336";
-            } else if (type === "success") {
-                notification.style.background = "#4CAF50";
-            } else {
-                notification.style.background = "#2196F3";
-            }
-            
-            // 显示通知
-            notification.style.display = "flex";
-            
-            // 3秒后隐藏
-            setTimeout(() => {
-                notification.style.display = "none";
-            }, 3000);
-        }
-        
-        // 页面加载完成后初始化
-        document.addEventListener('DOMContentLoaded', initPage);
+        });
     </script>
 </body>
 </html>
