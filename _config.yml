@@ -1,28 +1,30 @@
-title: "我的个人博客"
-description: "记录技术与生活"
+# 基本信息
+title: "我的博客"
+description: "个人技术博客"
 author: "你的名字"
 
-# ===== 选择一个主题 =====
-# 取消注释其中一个（删除前面的#号）
-# theme: jekyll-theme-minimal       # 简洁白色
- theme: jekyll-theme-cayman        # 蓝色渐变（推荐！）
-#theme: jekyll-theme-minima         # 默认主题
-# theme: jekyll-theme-hacker       # 黑色代码风格
-# theme: jekyll-theme-midnight     # 深色主题
-# theme: jekyll-theme-modernist    # 现代风格
+# 主题设置 - 使用最稳定的
+theme: jekyll-theme-cayman
 
-# 基础设置
-baseurl: ""
-url: "https://yizhimoshushi.github.io"  # 修改为你的用户名
+# 基础URL设置
+baseurl: ""  # 如果部署在子目录，填写目录名
+url: "https://yizhimoshushi.github.io"  # 你的GitHub Pages地址
 
-# 时区
+# 时间设置
 timezone: Asia/Shanghai
 
-# 构建设置
+# Markdown设置
 markdown: kramdown
+highlighter: rouge
+
+# 永久链接格式
 permalink: pretty
 
 # 插件
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+
+# 排除文件
+exclude:
+  - README.md
