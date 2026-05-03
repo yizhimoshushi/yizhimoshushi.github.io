@@ -18,21 +18,28 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Your awesome title
-email: your-email@example.com
+title: 魔术师夜光
+email: yizhimoshushi@outlook.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  I don't know.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://yizhimoshushi.github.com" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: jekyllrb
-github_username:  jekyll
+url: "https://yizhimoshushi.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+github_username:  yizhimoshushi
 
 # Build settings
 theme: minima
 plugins:
   - jekyll-feed
+
+# 设置时区（中国是 Asia/Shanghai）
+timezone: Asia/Shanghai
+
+# 设置语言（虽然 Jekyll 主题多为英文，但这里可以设为中文）
+locale: zh-CN
+
+# 在 _config.yml 里添加
+copyright: "Copyright (c) 2026 你的名字. All rights reserved."
+location: "Hainan, China"
 
 # Exclude from processing.
 # The following items will not be processed, by default.
