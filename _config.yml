@@ -1,62 +1,33 @@
 # Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
-#
-# If you need help with YAML syntax, here are some quick references for you:
-# https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
-# https://learnxinyminutes.com/docs/yaml/
-#
-# Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
 
 title: 魔术师夜光
 email: yizhimoshushi@outlook.com
-description: >- # this means to ignore newlines until "baseurl:"
-  I don't know.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://yizhimoshushi.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-github_username:  yizhimoshushi
+description: >-
+  魔术师的口袋里，永远藏着下一个惊喜。
+baseurl: ""
+url: "https://yizhimoshushi.github.io"
+github_username: yizhimoshushi
 
-# Build settings
-theme: minima
+# 这里是关键！换主题的核心配置
 plugins:
   - jekyll-feed
+  - jekyll-remote-theme # 必须添加这个插件
 
-# 设置时区（中国是 Asia/Shanghai）
+# 远程主题配置（Cayman 是深海风格）
+#remote_theme: pages-themes/cayman
+theme: jekyll-theme-cayman
+
+# Cayman 主题的专属配置（让它更好看）
+colors:
+  primary: "#008489" # 海口大海的颜色：青绿色
+  secondary: "#2096ff" # 亮蓝色
+  accent: "#db2777" # 粉色点缀
+  text: "#333333"
+  code: "#333"
+  background: "#ffffff"
+
+# 常规设置
 timezone: Asia/Shanghai
-
-# 设置语言（虽然 Jekyll 主题多为英文，但这里可以设为中文）
 locale: zh-CN
-
-# 在 _config.yml 里添加
-copyright: "Copyright (c) 2026 你的名字. All rights reserved."
+copyright: "Copyright (c) 2026 魔术师夜光. All rights reserved."
 location: "Hainan, China"
-
-# Exclude from processing.
-# The following items will not be processed, by default.
-# Any item listed under the `exclude:` key here will be automatically added to
-# the internal "default list".
-#
-# Excluded items can be processed by explicitly listing the directories or
-# their entries' file path in the `include:` list.
-#
-# exclude:
-#   - .sass-cache/
-#   - .jekyll-cache/
-#   - gemfiles/
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules/
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
