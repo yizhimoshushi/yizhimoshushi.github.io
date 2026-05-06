@@ -1,0 +1,10 @@
+// 覆盖 Cayman 主题默认的头部背景
+.page-header {
+    // 设置从左到右的渐变：淡紫色 -> 青绿色
+    background-image: linear-gradient(to right, #8b5cf6 0%, #17e096 100%) !important;
+}
+
+// 如果你想让按钮或者链接也稍微配合一下颜色（可选）
+.btn {
+    background-color: #8ec5fc;
+}

@@ -19,7 +19,7 @@ theme: jekyll-theme-cayman
 
 # Cayman 主题的专属配置（让它更好看）
 colors:
-  primary: "#008489" # 海口大海的颜色：青绿色
+  primary: "#008489" # 青绿色
   secondary: "#2096ff" # 亮蓝色
   accent: "#db2777" # 粉色点缀
   text: "#333333"
