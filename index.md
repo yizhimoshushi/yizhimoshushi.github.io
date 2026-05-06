@@ -2,7 +2,7 @@
 layout: default
 ---
 
-我的GitHub：:octocat: [yizhimoshushi](https://github.com/yizhimoshushi)
+我的GitHub：[yizhimoshushi](https://github.com/yizhimoshushi)
 
 ## 项目展示
 
