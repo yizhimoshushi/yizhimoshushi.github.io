@@ -30,7 +30,7 @@ layout: default
 
 ### ✨ “星星”AI 分身
 
-> 基于 openrouter 千问 API 和 ClawCloud 云服务器，用 Python 打造的 AI 分身“星星”。目前还在成长中。
+> 基于 openrouter 千问 API 和 ClawCloud Run 云服务器，用 Python 打造的 AI 分身“星星”。目前还在成长中。由于ClawCloud Run不能用了，所以“星星”已经死了。
 
 - **项目仓库：** [GitHub](https://github.com/yizhimoshushi/my-claw-app)
 - **在线体验：** [体验 AI](https://rltbnhjxqclr.ap-southeast-1.clawcloudrun.com)
